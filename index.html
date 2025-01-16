@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Ahmed Hassan - مهندس طاقة متجددة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- زر تبديل الوضع الليلي -->
+    <div id="theme-toggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- أيقونة البحث -->
+    <div id="search-icon">
+        <i class="fas fa-search"></i>
+    </div>
+
+    <!-- شريط البحث -->
+    <div id="search-bar">
+        <input type="text" id="searchInput" placeholder="ابحث عن عنوان...">
+        <button id="closeSearchBar"><i class="fas fa-times"></i></button>
+    </div>
+
+    <!-- نتائج البحث -->
+    <div id="searchResults" class="search-results">
+        <ul></ul>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <!-- معلومات الطقس والتاريخ -->
+<div class="top-info">
+    <div class="info-card">
+        <i class="fas fa-calendar-alt"></i>
+        <p id="current-date"></p>
+    </div>
+    <div class="info-card">
+        <div id="weather-icon">
+            <!-- سيتم إضافة صورة الطقس هنا -->
+        </div>
+        <p id="weather-info">جاري تحميل بيانات الطقس...</p>
+    </div>
+</div>
+
+        <header>
+            <h1>Mohamed Ahmed Hassan</h1>
+            <h2>Renewable Energy Engineer</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Qalyub, Egypt</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:mohamedelbadry232@gmail.com">mohamedelbadry232@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> +201020333134</p>
+            <p><i class="fas fa-birthday-cake"></i> Date of Birth: 10/5/2001</p>
+            <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/mohamed-elbadry-607741297" target="_blank">LinkedIn Profile</a></p>
+        </header>
+
+        <section id="objective">
+            <h2><i class="fas fa-bullseye"></i> Objective</h2>
+            <p>Highly skilled Renewable Energy Engineer with extensive experience in solar and power station design, fault analysis, and maintenance. Proficient in using advanced simulation programs and tools for optimizing energy systems. Proven track record in social media management and marketing for startups. Seeking to leverage my skills and experience in a challenging role within the renewable energy sector.</p>
+        </section>
+
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <h3>PLC and Electrical Systems Responsibilities</h3>
+            <ul>
+                <li><strong>PLC Programming and Implementation:</strong> Trained in programming and configuring Programmable Logic Controllers (PLCs) for industrial automation. Gained hands-on experience with Siemens PLCs, including troubleshooting and optimizing PLC-based systems.</li>
+                <li><strong>Electrical Panel Assembly and Installation:</strong> Assembled and installed electrical control panels for various industrial applications. Ensured compliance with electrical safety standards and best practices.</li>
+                <li><strong>Solar Power System Installation:</strong> Participated in the installation of a 320 kW solar power system at Qalyoub Distribution Station. Assisted in mounting solar panels, wiring, and connecting the system to the grid.</li>
+                <li><strong>Elevator Maintenance and Inverter Repair:</strong> Performed regular maintenance on elevators to ensure safe and efficient operation. Diagnosed and repaired issues with elevator systems, including both mechanical and electrical components.</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+            <h3>Tracker System</h3>
+            <ul>
+                <li>Designed and developed a GPS-based tracker system using Arduino.</li>
+                <li>Integrated GSM/GPRS modules to transmit location data to a cloud server.</li>
+                <li>Created a web interface for real-time location tracking and data visualization.</li>
+            </ul>
+
+            <h3>Smart Elevator System</h3>
+            <ul>
+                <li>Developed a smart elevator control system using Arduino and various sensors.</li>
+                <li>Implemented safety features and optimized the system for energy efficiency.</li>
+                <li>Connected the elevator system to the cloud for remote monitoring and maintenance alerts.</li>
+            </ul>
+
+            <h3>Signal Amplifier</h3>
+            <ul>
+                <li>Engineered an electronic signal amplifier to boost weak signals for better transmission.</li>
+                <li>Utilized operational amplifiers and other electronic components to achieve desired amplification.</li>
+                <li>Ensured stable and noise-free signal output through meticulous circuit design and testing.</li>
+            </ul>
+
+            <h3>Smart Solar Panel Cleaner</h3>
+            <ul>
+                <li>Created an automated cleaning system for solar panels to enhance efficiency.</li>
+                <li>Integrated sensors to detect dust accumulation and control cleaning mechanisms.</li>
+                <li>Connected the system to the cloud for scheduling cleanings and monitoring panel performance.</li>
+            </ul>
+        </section>
+
+        <section id="courses">
+            <h2><i class="fas fa-book"></i> Courses</h2>
+            
+            <div class="course-card">
+                <h3>Solar Power Plant Installation and Maintenance (4/7 to 4/8 /2023)</h3>
+                <ul>
+                    <li><strong>Focus:</strong> On-grid and Off-grid Solar Systems</li>
+                    <li><strong>Content:</strong> Installation of solar panels and inverters for on-grid and off-grid systems. Design and implementation of solar energy systems for various applications.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <h3>Solar Water Pumping Systems (10/8 to 10/10 2023)</h3>
+                <ul>
+                    <li><strong>Focus:</strong> Design and Maintenance</li>
+                    <li><strong>Content:</strong> Design and implementation of solar-powered water pumping systems. Integration of solar pumps with both surface and submersible pumps.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <h3>Electrical Power Generation at South Cairo Power Station (12/1 to 14/3 /2024)</h3>
+                <ul>
+                    <li><strong>Focus:</strong> Stages of Electricity Production</li>
+                    <li><strong>Content:</strong> Overview of the electricity production process at South Cairo Power Station. Detailed study of power generation stages, including fuel supply, combustion, steam generation, and electricity production.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <h3>Networking and Administration (10/5/2022 to 15/8/2022)</h3>
+                <ul>
+                    <li><strong>Certification:</strong> Cisco Certified Network Associate (CCNA)</li>
+                    <li><strong>Focus:</strong> Networking and Network Management</li>
+                    <li><strong>Content:</strong> Fundamentals of networking, including OSI model and TCP/IP protocols. Configuring and managing Cisco routers and switches.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <h3>Siemens PLC Training (9/5 to 10/7/ 2024)</h3>
+                <ul>
+                    <li><strong>Focus:</strong> Programmable Logic Controllers (PLCs)</li>
+                    <li><strong>Content:</strong> Programming and configuring Siemens PLCs using TIA Portal. Developing and implementing logic for industrial automation systems.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+
+            <div class="course-card">
+                <h3>Power Transmission and Transformer Maintenance at Shubra El-Khima Steam Power Station</h3>
+                <ul>
+                    <li><strong>Focus:</strong> Power Transmission and Transformer Maintenance</li>
+                    <li><strong>Content:</strong> Overview of the steam power generation process at Shubra El-Khima Power Station. Methods and technologies used for efficient power transmission.</li>
+                    <li><strong>Organized by:</strong> <a href="https://example.com" target="_blank">Example Organization</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <h3>New Cairo Technological University</h3>
+            <ul>
+                <li><strong>Degree:</strong> Bachelor's in New and Renewable Energy</li>
+                <li><strong>Year:</strong> Currently in the third year</li>
+                <li><strong>Key Coursework:</strong> Solar Energy Systems, Wind Energy Technology, Energy Storage Systems, Power Electronics, Sustainable Energy Solutions</li>
+            </ul>
+
+            <h3>Benha Industrial Technical Institute</h3>
+            <ul>
+                <li><strong>Degree:</strong> Associate Degree in Electrical Power Networks</li>
+                <li><strong>Duration:</strong> 2 years</li>
+                <li><strong>Year:</strong> Graduated 2022</li>
+                <li><strong>Key Coursework:</strong> Electrical Circuit Analysis, Power Distribution Systems, PLC Programming, Electrical Machines, Renewable Energy Basics</li>
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2><i class="fas fa-tools"></i> Skills</h2>
+            <h3>Technical Skills</h3>
+            <ul>
+                <li><strong>Software Programs:</strong> MATLAB Simulink, SketchUp, PV SYST, PV SOL, Microsoft Office 365, AutoCAD, SolidWorks, 3ds Max</li>
+                <li><strong>Programming Languages:</strong> Ladder Logic, Structured Text</li>
+                <li><strong>Electrical Engineering:</strong> Circuit design, panel assembly, wiring, testing</li>
+                <li><strong>Solar Power Systems:</strong> Installation, wiring, grid connection, performance testing</li>
+                <li><strong>Maintenance and Repair:</strong> Elevator systems, inverters, PLC-based automation systems</li>
+                <li><strong>Tools:</strong> Siemens TIA Portal, Multimeters, Oscilloscopes, PLC Simulators</li>
+            </ul>
+
+            <h3>Soft Skills</h3>
+            <ul>
+                <li>Effective communication skills</li>
+                <li>Strong analytical skills</li>
+                <li>Creative and Critical Thinking Skills</li>
+                <li>Teamwork</li>
+                <li>Leadership skills</li>
+                <li>Problem-solving skills</li>
+                <li>Project management skills</li>
+                <li>Time management</li>
+                <li>Multitasking</li>
+            </ul>
+        </section>
+
+        <section id="languages">
+            <h2><i class="fas fa-language"></i> Languages</h2>
+            <ul>
+                <li>Arabic: Native</li>
+                <li>English: A2</li>
+            </ul>
+        </section>
+
+        <!-- زر تنزيل ملف PDF -->
+        <div class="download-section">
+            <input type="text" id="phraseInput" placeholder="اكتب 'فلسطين حرة' لتنزيل الملف">
+            <button id="downloadBtn" disabled>تنزيل ملف PDF</button>
+            <p id="errorMessage" style="color: red; display: none;">يرجى كتابة "فلسطين حرة" بشكل صحيح.</p>
+        </div>
+
+        <!-- زر التواصل مع المبرمج -->
+        <div class="contact-section">
+            <button id="contactBtn">
+                <i class="fas fa-headset"></i> Contact Developer
+            </button>
+        </div>
+
+        <!-- مربع الحوار للتواصل -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Contact the Developer</h2>
+                <p>Email: <span id="developerEmail">mohamedelbadry232@gmail.com</span> <button id="copyEmailBtn">Copy</button></p>
+                <p>WhatsApp: <span id="developerWhatsApp">https://wa.me/qr/KKUTULZV3YDBK1</span> <button id="copyWhatsAppBtn">Copy</button></p>
+            </div>
+        </div>
+
+        <!-- الاحتفالية -->
+        <div id="celebration" class="celebration">
+            <!-- سيتم إضافة المفرقعات هنا عبر JavaScript -->
+        </div>
+
+        <!-- مربع نتائج البحث من Google -->
+        <div id="googleSearchResults" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>نتائج البحث</h2>
+                <div id="googleResults"></div>
+            </div>
+        </div>
+
+        <!-- شريط الإحصائيات -->
+        <div id="stats-bar">
+            <div class="stat">
+                <span>الكمبيوتر:</span>
+                <span id="desktop-count">0</span>
+            </div>
+            <div class="stat">
+                <span>الأندرويد:</span>
+                <span id="android-count">0</span>
+            </div>
+            <div class="stat">
+                <span>الآيفون:</span>
+                <span id="ios-count">0</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript لتعقب الإحصائيات
+        function updateStats() {
+            const userAgent = navigator.userAgent;
+            let desktopCount = parseInt(localStorage.getItem('desktopCount')) || 0;
+            let androidCount = parseInt(localStorage.getItem('androidCount')) || 0;
+            let iosCount = parseInt(localStorage.getItem('iosCount')) || 0;
+
+            if (/Android/i.test(userAgent)) {
+                androidCount++;
+                localStorage.setItem('androidCount', androidCount);
+            } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                iosCount++;
+                localStorage.setItem('iosCount', iosCount);
+            } else {
+                desktopCount++;
+                localStorage.setItem('desktopCount', desktopCount);
+            }
+
+            document.getElementById('desktop-count').textContent = desktopCount;
+            document.getElementById('android-count').textContent = androidCount;
+            document.getElementById('ios-count').textContent = iosCount;
+        }
+
+        // تحديث الإحصائيات عند تحميل الصفحة
+        window.onload = updateStats;
+    </script>
+</body>
+</html>
