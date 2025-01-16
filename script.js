@@ -161,17 +161,6 @@ if (themeToggle && body) {
     }
 }
 
-// بيانات العناوين المتاحة للبحث
-const sections = [
-    { id: "objective", title: "الهدف" },
-    { id: "experience", title: "الخبرة المهنية" },
-    { id: "projects", title: "المشاريع" },
-    { id: "courses", title: "الدورات" },
-    { id: "education", title: "التعليم" },
-    { id: "skills", title: "المهارات" },
-    { id: "languages", title: "اللغات" }
-];
-
 // تفعيل شريط البحث
 if (searchIcon && searchBar && searchInput && searchResults) {
     searchIcon.addEventListener('click', () => {
@@ -195,32 +184,61 @@ if (searchIcon && searchBar && searchInput && searchResults) {
 
         if (query) {
             searchTimeout = setTimeout(() => {
-                const filteredSections = sections.filter(section =>
-                    section.title.toLowerCase().includes(query)
-                );
-
-                if (filteredSections.length > 0) {
-                    filteredSections.forEach(section => {
-                        const li = document.createElement('li');
-                        li.textContent = section.title;
-                        li.addEventListener('click', () => {
-                            document.getElementById(section.id).scrollIntoView({ behavior: 'smooth' });
-                            searchResults.style.display = 'none';
+                // البحث في جوجل
+                searchGoogle(query).then(googleResults => {
+                    if (googleResults && googleResults.length > 0) {
+                        googleResults.forEach(result => {
+                            const li = document.createElement('li');
+                            li.innerHTML = `
+                                <a href="${result.link}" target="_blank" style="color: #3498db; text-decoration: none;">
+                                    🌐 ${result.title}
+                                </a>
+                                <p style="color: #666; font-size: 0.9em;">${result.snippet}</p>
+                            `;
+                            resultsList.appendChild(li);
                         });
+                    } else {
+                        const li = document.createElement('li');
+                        li.textContent = "🌐 لا توجد نتائج من جوجل";
                         resultsList.appendChild(li);
-                    });
-                    searchResults.style.display = 'block';
-                } else {
+                    }
+                }).catch(error => {
+                    console.error('Error fetching Google results:', error);
                     const li = document.createElement('li');
-                    li.textContent = "لا توجد نتائج";
+                    li.textContent = "🌐 تعذر الاتصال بجوجل";
                     resultsList.appendChild(li);
-                    searchResults.style.display = 'block';
-                }
-            }, 300);
+                });
+
+                searchResults.style.display = 'block';
+            }, 500); // تأخير البحث لـ 500 مللي ثانية
         } else {
             searchResults.style.display = 'none';
         }
     });
+}
+
+// البحث في جوجل باستخدام Google Custom Search API
+async function searchGoogle(query) {
+    const apiKey = 'AIzaSyDskUYjH09dyzwv1d7H_SeTbH8_WmqXzuw'; // استبدل بمفتاح API الخاص بك
+    const searchEngineId = 'e100245bc7ebd47a0'; // استبدل بمعرف محرك البحث الخاص بك
+    const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${apiKey}&cx=${searchEngineId}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.items) {
+            return data.items.map(item => ({
+                title: item.title,
+                link: item.link,
+                snippet: item.snippet
+            }));
+        } else {
+            return [];
+        }
+    } catch (error) {
+        console.error('Error fetching Google results:', error);
+        return [];
+    }
 }
 
 // عرض رسائل التأكيد
